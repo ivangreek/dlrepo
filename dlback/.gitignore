@@ -29,6 +29,8 @@ node_modules
 # Emacs
 *~
 
+README.md
+
 # Environment Settings
 .env
 app.json
