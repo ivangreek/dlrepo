@@ -43,6 +43,8 @@ export class LandmarkFormComponent implements OnInit {
     }
 
   ngOnInit(): void {
+    //Subscribe to user authentication service. 
+    //If the user is not authenticated the form is redirected to login page
     this.currentUser$ = this.authService.getCurrentUser$().subscribe(
       user => { 
         this.isAuthenticated = (user != null);
@@ -54,12 +56,12 @@ export class LandmarkFormComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.getLandmark(params.get("landmarkId"))
       .then(landmark => {
-        console.log('step 3');
         this.landmark = landmark;
         let landmarksSimpleFields = ['title', 'short_info', 'url', 'description', 'order'];
         var formFields = {
           imageFile: ['', MaxSizeValidator(this.maxSize)]
         }
+        // If the landmark id is empty, then the record is new
         if (landmark.id){
           this.title = this.landmark.get("title");
           this.locationExists = (this.landmark.get('location')['latitude'] != null);
@@ -69,7 +71,6 @@ export class LandmarkFormComponent implements OnInit {
             formFields[keyName]=[this.landmark.get(keyName), Validators.required]
           });
           this.photoPreexists = (this.landmark.get('photo') != null)
-          console.log(this.photoPreexists);
         } else {
           this.locationExists = false;
           this.photoPreexists = false;
@@ -83,8 +84,10 @@ export class LandmarkFormComponent implements OnInit {
       .catch(error=>{console.log(JSON.stringify(error))});
     });    
   }
+  
+  // Retrieve the landmark based on passed ID. If no ID is passed 
+  // create new Landmark object
   getLandmark(landmarkId:string){
-    console.log('step 2');
     if (landmarkId){
       return this.landmarkService.getLandmark(landmarkId);
     } else {
@@ -95,6 +98,9 @@ export class LandmarkFormComponent implements OnInit {
       });
     }
   }
+
+  // Update the landmark. First upload image file to retrieve the file id, 
+  // and then update the landmark object
   onSubmit(): void{
     this.landmarkInvalid = false;
     this.formSubmitAttempt = false;
@@ -119,6 +125,7 @@ export class LandmarkFormComponent implements OnInit {
     }      
   }
 
+  //Upload the photo file if any, otherwise return empty object
   updatePhoto(fileToSave){
     if (fileToSave) {
       return fileToSave.save();
@@ -140,6 +147,7 @@ export class LandmarkFormComponent implements OnInit {
     this.longitude = location.lng;
   }
 
+  //Replace non-alphanumerical characters from file name and transform the file to 64 base
   onFileChange(files: File[]){
     if (files.length > 0){
       var fileData = files[0];

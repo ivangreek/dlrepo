@@ -29,7 +29,6 @@ export class MapComponent implements OnInit {
 
   
   ngOnInit(): void {
-    console.log ("long " + this.lng + ",ltd " + this.lat);
     //Assign default coors in case if no location have been initially provided. Case of a new record.
     if (!this.setMarker){
       this.lat = this.defaultLat;
@@ -49,7 +48,6 @@ export class MapComponent implements OnInit {
         })
         this.marker.setLngLat([this.lng, this.lat])
         this.marker.addTo(this.map); // add the marker to the map
-        console.log(this.marker);
         this.marker.on('dragend', ()=>{
           var lngLat = this.marker.getLngLat();
           this.moveMarker.emit(lngLat);
@@ -66,7 +64,6 @@ export class MapComponent implements OnInit {
           })
           this.marker.setLngLat(event.lngLat)
           this.marker.addTo(this.map); // add the marker to the map
-          console.log(this.marker);
           this.marker.on('dragend', ()=>{
             var lngLat = this.marker.getLngLat();
             this.moveMarker.emit(lngLat);

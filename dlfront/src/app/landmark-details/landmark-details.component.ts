@@ -36,9 +36,8 @@ export class LandmarkDetailsComponent implements OnInit {
   getLandmark(landmarkId:string){
     this.landmarkService.getLandmark(landmarkId)
     .then(landmark => {
-      console.log(landmark.get("photo"));
       this.landmark = this.landmarkService.landmarkFromParseObject(landmark);
-      //Set locationExists to true if the location is not empty
+      //Set locationExists to true if the location is not empty.
       this.locationExists = (this.landmark.location['latitude'] != null);
     })
     .catch(error=>{
@@ -55,4 +54,3 @@ export class LandmarkDetailsComponent implements OnInit {
     this.dialog.open(FullImageDialogComponent, dialogConfig);
   }
 }
-//landmarkFromParseObject

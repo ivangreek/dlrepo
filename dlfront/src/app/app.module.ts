@@ -13,7 +13,6 @@ import { MatListModule } from '@angular/material/list';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LandmarkListComponent } from'./landmark-list/landmark-list.component';
 import { MatCardModule } from '@angular/material/card';
-import { ListCardComponent } from './list-card/list-card.component';
 import { LandmarkDetailsComponent } from './landmark-details/landmark-details.component';
 import { LandmarkFormComponent } from './landmark-form/landmark-form.component';
 import { LoginComponent } from './login/login.component';
@@ -35,7 +34,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AppComponent,
     NavbarComponent,
     LandmarkListComponent,
-    ListCardComponent,
     LandmarkDetailsComponent,
     LandmarkFormComponent,
     LoginComponent,
