@@ -1,0 +1,7 @@
+<button mat-icon-button class="close-button">
+  <mat-icon class="close-icon" (click)="close()">close</mat-icon>
+</button>
+<mat-dialog-content>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <img class="full-image" [ngStyle]="{visibility:isLoading?'hidden':''}" [src]="imageUrl" (load)="loadComplete()">
+</mat-dialog-content>

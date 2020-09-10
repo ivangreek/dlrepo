@@ -1,0 +1,40 @@
+<div fxLayout="row" fxLayoutAlign="center none">
+  <mat-card fxFlex fxLayout="column" *ngIf="landmark" fxLayoutGap="16px">
+    <div fxFlex class="mat-app-background basic-container">
+      <mat-card-title>
+        <a href="{{landmark.url}}" mat-button target="_blank" color="primary"><span class="landmark-title">{{landmark.title}}
+          </span><mat-icon>launch</mat-icon>
+        </a>
+        <button mat-mini-fab color="primary" aria-label="Home" [routerLink]="['']">
+          <mat-icon>home</mat-icon>
+        </button>
+        <button *ngIf="isAuthenticated" mat-mini-fab class="tool-icon" aria-label="Edit" [routerLink]="['/landmark', landmark.id, 'edit']">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </mat-card-title>
+    </div>
+    <div fxFlex fxLayout="column" fxLayout.gt-xs="row" fxLayoutAlign.xs="center" fxLayoutAlign.gt-xs="none" fxLayoutGap="16px">
+      <div fxFlex fxLayout="row" fxLayoutAlign="center none" class="image-map-holder" *ngIf="landmark.photo_thumb">
+        <img 
+        *ngIf="landmark.photo_thumb" 
+        [src]="landmark.photo_thumb" 
+        (click)="showFullImage(landmark.photo)">
+      </div>
+      <div fxFlex fxLayout="row" fxLayoutAlign="center ">
+        <app-map 
+          [lat]="locationExists ? landmark.location['latitude'] : null" 
+          [lng]="locationExists ? landmark.location['longitude'] : null"
+          [setMarker]="locationExists">
+        </app-map>
+      </div>
+    </div>
+    <mat-card-content fxFlex>
+      <h2>Short Info</h2>
+        {{landmark.short_info}}
+      </mat-card-content>
+      <mat-card-content fxFlex>
+          <h2>Descrption</h2>
+        {{landmark.description}}
+    </mat-card-content>
+  </mat-card>  
+</div>

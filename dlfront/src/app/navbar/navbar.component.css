@@ -1,0 +1,19 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.icon-inline{
+  height: inherit;
+  line-height: inherit;
+}
+
+.mat-button{
+  font-size: 20px;
+}
+
+.mat-button.fake-button .mat-button-focus-overlay,
+.mat-button.fake-button{
+  background-color: transparent;
+  cursor: default;
+}
+

@@ -1,0 +1,21 @@
+img {
+  object-fit: contain;
+  max-height: inherit;
+  max-width: 100%;
+}
+
+.mat-dialog-content{
+  max-height: 86vh;
+  margin: 0px;
+  overflow: visible;
+}
+
+
+.mat-icon-button {
+  float: right;
+  top: -22px;
+  right: 2px;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+}

@@ -1,0 +1,31 @@
+<div class="list-container" fxLayout="column" fxLayoutAlign=" center" fxLayoutGap="16px"> 
+  <mat-card *ngFor="let landmark of landmarks; index as landmarkId">
+    <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign.sm="center" fxLayoutAlign.gt-sm="none" fxLayoutGap="16px">
+      <a fxFlex fxHide.gt-sm mat-card-title [title]="'Read more about ' + landmark.title" 
+        fxShow
+        mat-button
+        color="primary"
+        [routerLink]="['/landmark', landmark.id]"
+        [state]="{landmarkId: landmark.id}">
+        {{landmark.title}}
+      </a>
+      <img fxFlex="none" *ngIf="landmark.photo_thumb" [src]="landmark.photo_thumb">
+      <div fxFlex fxLayout="column" fxLayoutAlign="start" fxLayoutGap="16px">
+        <a fxFlex="none" fxHide mat-card-title [title]="'Read more about ' + landmark.title" 
+          fxShow.gt-sm
+          color="primary"
+          mat-button
+          [routerLink]="['/landmark', landmark.id]"
+          [state]="{landmarkId: landmark.id}">
+          {{landmark.title}}
+        </a>
+        <mat-card-content fxFlex>
+          {{landmark.short_info}}
+        </mat-card-content>
+      </div>
+    </div>
+  </mat-card>
+</div>
+<button mat-fab *ngIf="isAuthenticated" class="add-button" [routerLink]="['/landmark-new']">
+  <mat-icon>add</mat-icon>
+</button>

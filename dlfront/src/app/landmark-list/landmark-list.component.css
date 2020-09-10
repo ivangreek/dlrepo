@@ -1,0 +1,25 @@
+
+.list-container{
+  padding: 16px;
+  width: 100%;
+}
+
+.mat-card{
+  max-width: 800px;
+}
+
+img {
+  width: 250px;
+}
+
+.mat-button {
+  padding: 0px;
+  text-align: left;
+}
+
+.add-button{
+  right: 20px;
+  bottom: 20px;
+  left: auto;
+  position: fixed;
+}

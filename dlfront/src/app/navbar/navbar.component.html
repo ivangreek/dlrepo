@@ -1,0 +1,39 @@
+<mat-toolbar color="primary">
+  <a mat-button [routerLink]="['/']">
+    {{app_title}}
+  </a>
+  <span class="example-spacer"></span>
+  <button mat-icon-button [matMenuTriggerFor]="menu" fxShow fxHide.gt-xs>
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu" >
+    <button mat-menu-item *ngIf="isAuthenticated" disabled>
+      <mat-icon>person</mat-icon>
+      <span>{{username}}</span>
+    </button>
+    <button mat-menu-item *ngIf="isAuthenticated" (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+    <button mat-menu-item *ngIf="!isAuthenticated" (click)="login()">
+      <mat-icon>login</mat-icon>
+      <span>Login</span>
+    </button>
+  </mat-menu>
+  <div fxShow.gt-xs fxHide>
+    <button mat-button *ngIf="isAuthenticated" disableRipple="true" class="fake-button">
+      <mat-icon>person</mat-icon>
+      <span>{{username}}</span>
+    </button>
+    <button *ngIf="!isAuthenticated"
+      mat-icon-button 
+      class="example-icon favorite-icon" 
+      aria-label="Login" 
+      (click)="login()">
+      <mat-icon>login</mat-icon>
+    </button>
+    <button *ngIf="isAuthenticated" mat-button aria-label="Logout" (click)="logout()" >
+      <mat-icon>logout</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
