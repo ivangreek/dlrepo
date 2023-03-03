@@ -66,5 +66,51 @@
       "petsAllowed": false,
       "organizer": "Brody Kill"
     }
+  ],
+  foreis: [
+    {
+        aa: "1",
+        name: "Περιφέρεια Κεντρικής Μακεδονίας",
+        legalType: "Οργανισμός Κοινωνικής Ασφάλισης",
+        contractType: "Έλεγχος αποδοτικότητας επεμβάσεων",
+        contractStatus: "Ενεργή",
+        contactPerson: "Χρήστος Νικολάου",
+        contactEmail: "nikolaou@pkm.gr",
+        contactPhone: "2310 252 525",
+        contactCell: "6910 10 10 10"
+    },
+    {
+        aa: "2",
+        name: "Δήμος Θεσσαλονίκης",
+        legalType: "ΝΠΔΔ",
+        contractType: "Αναβάθμιση κτιρίων",
+        contractStatus: "Ανενεργή",
+        contactPerson: "Μαρία Αθανασίου",
+        contactEmail: "athanasiou.m@thessaloniki.gr",
+        contactPhone: "2310 656 565",
+        contactCell: "6977 88 88 88"
+    },
+    {
+        aa: "3",
+        name: "Εταιρεία ",
+        legalType: "Ιδιωτική Επιχείρηση",
+        contractType: "Αρχική αξιολόγηση κτιρίων",
+        contractStatus: "Ενεργή",
+        contactPerson: "Σοφία Λασκαρίνα",
+        contactEmail: "Slaska@helios.gr",
+        contactPhone: "2310 753 357",
+        contactCell: "6977 33 55 77"
+    },
+    {
+        aa: "4",
+        name: "Περιφερειακό Κέντρο Ενεργειακής Ανάπτυξης Βορείου Ελλάδος",
+        legalType: "Δημόσια Επιχείρηση ή Οργανισμός",
+        contractType: "Αναβάθμιση κτιρίων",
+        contractStatus: "Ανενεργή",
+        contactPerson: "Αθηνά Γεωργίου",
+        contactEmail: "Ageorgiou@phisi.gr",
+        contactPhone: "2310 100 200",
+        contactCell: "6999 77 55 33"
+    }
   ]
 }
